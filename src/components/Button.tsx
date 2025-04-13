@@ -5,10 +5,12 @@ export type ButtonType = {
 
 }
 
-export const Button:FC<ButtonType> = () => {
+export const Button: FC<ButtonType> = ({title}) => {
     return (
         <>
-        <button></button>
+            <button>
+                {title}
+            </button>
         </>
     )
 }
