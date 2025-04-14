@@ -7,23 +7,22 @@ type MoneyListType = {
 }
 
 
-
 export const MoneyList: FC<MoneyListType> = ({money}) => {
 
     type MoneyFilterType = "All" | "Dollars" | "Rubles"
 
-    const[filter, setFilter] = useState<MoneyFilterType>("All")
+    const [filter, setFilter] = useState<MoneyFilterType>("All")
 
     let filteredMoney = money
-    if(filter === "Dollars")
+    if (filter === "Dollars")
         filteredMoney = money.filter((f) => f.banknots === "Dollars")
-    if(filter === "Rubles")
-        filteredMoney= money.filter((f) => f.banknots === "RUBLS")
+    if (filter === "Rubles")
+        filteredMoney = money.filter((f) => f.banknots === "RUBLS")
 
 
     const setFilterHandler = (filterValue: MoneyFilterType) => {
         setFilter(filterValue)
-        // console.log(filter)
+        // console.log(filterValue)
     }
 
     return (
@@ -40,9 +39,16 @@ export const MoneyList: FC<MoneyListType> = ({money}) => {
                 })}
             </ul>
             <div style={{margin: "35px"}}>
-                <Button callBack={() => setFilterHandler("All")} title={"All"}/>
-                <Button callBack={() => setFilterHandler("Dollars")} title={"Dollars"}/>
-                <Button callBack={() => setFilterHandler("Rubles")} title={"Rubles"}/>
+                <Button callBack={() => setFilterHandler("All")}>
+                    All
+                </Button>
+                <Button callBack={() => setFilterHandler("Dollars")}>
+                    Dollars
+                </Button>
+                <Button callBack={() => setFilterHandler("Rubles")}>
+                    Rubles
+                </Button>
+
             </div>
         </>
 
